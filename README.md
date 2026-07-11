@@ -5,7 +5,7 @@ Other mods can inject themselves into this list of mods and provide additional f
 * Reloading the mod's assets (such as custom stages from StageLoader, custom characters from CharLoader, etc...)
 * Checking for available updates on GitHub or GameBanana
 
-To install, go to [Releases](http://github.com/headshot2017/smbzg-modsmenu), extract to the root of SMBZ-G folder, where the .exe is
+To install, go to [Releases](http://github.com/headshot2017/smbzg-modsmenu/releases), extract to the root of SMBZ-G folder, where the .exe is
 
 ![image](screenshot.png)
 
