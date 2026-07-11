@@ -24,55 +24,58 @@ Pick one or multiple of the following and add it to the `public override void On
 
 ### Adding a mod entry
 ```cs
-public override void OnLateInitializeMelon()
+public class Core : MelonMod
 {
-    SMBZModsMenu.Core.ModEntries.Add(new()
+    public override void OnLateInitializeMelon()
     {
-        // MelonLoader info about the mod
-        info = Info,
+        SMBZModsMenu.Core.ModEntries.Add(new()
+        {
+            // MelonLoader info about the mod
+            info = Info,
 
-        // Function to call when the Reload button for
-        // this mod is clicked. This field is not required
-        // and can be left out.
-        // Not needed for custom characters made with CharLoader.
-        reloadFunction = LoadModAssets,
+            // Function to call when the Reload button for
+            // this mod is clicked. This field is not required
+            // and can be left out.
+            // Not needed for custom characters made with CharLoader.
+            reloadFunction = LoadModAssets,
 
-        // For update-checking, where to look for updates?
-        // SMBZModsMenu.ModUpdateLocation.GitHub
-        // SMBZModsMenu.ModUpdateLocation.Gamebanana_Name
-        // SMBZModsMenu.ModUpdateLocation.Gamebanana_ID
-        updateLocation = SMBZModsMenu.ModUpdateLocation.Gamebanana_Name,
+            // For update-checking, where to look for updates?
+            // SMBZModsMenu.ModUpdateLocation.GitHub
+            // SMBZModsMenu.ModUpdateLocation.Gamebanana_Name
+            // SMBZModsMenu.ModUpdateLocation.Gamebanana_ID
+            updateLocation = SMBZModsMenu.ModUpdateLocation.Gamebanana_Name,
 
-        // String that specifies the repository where to look for updates.
-        // if updateLocation is GitHub: "username/repository", e.g. "headshot2017/smbzg-modsmenu"
-        // if updateLocation is Gamebanana_Name: The exact name of the submission in GameBanana.
-        // if updateLocation is Gamebanana_ID: The ID of the submission in GameBanana. This ID is a number at the end of the address bar, e.g. gamebanana.com/mods/388538
-        updateRepo = "SMBZModsMenu"
+            // String that specifies the repository where to look for updates.
+            // if updateLocation is GitHub: "username/repository", e.g. "headshot2017/smbzg-modsmenu"
+            // if updateLocation is Gamebanana_Name: The exact name of the submission in GameBanana.
+            // if updateLocation is Gamebanana_ID: The ID of the submission in GameBanana. This ID is a number at the end of the address bar, e.g. gamebanana.com/mods/388538
+            updateRepo = "SMBZModsMenu"
 
 
-        // IMPORTANT NOTE: If you add update-checking functionality, please make sure to
-        // increase the version in [assembly: MelonInfo] in Core.cs when releasing
-        // an update. On a new project this is "1.0.0"
-    });
+            // IMPORTANT NOTE: If you add update-checking functionality, please make sure to
+            // increase the version in [assembly: MelonInfo] in Core.cs when releasing
+            // an update. On a new project this is "1.0.0"
+        });
 
-    // Load
-    LoadModAssets();
-}
+        // Load
+        LoadModAssets();
+    }
 
-void LoadModAssets()
-{
-    // Load your mod's assets here by
-    // creating a GameObject with a LoaderComponent
-    // and mark it with DontDestroyOnLoad()
-    // (See CharLoader, StageLoader, MusicLoader or MenuSceneLoader code for reference)
+    void LoadModAssets()
+    {
+        // Load your mod's assets here by
+        // creating a GameObject with a LoaderComponent
+        // and mark it with DontDestroyOnLoad()
+        // (See CharLoader, StageLoader, MusicLoader or MenuSceneLoader code for reference)
 
-    // If your mod is a custom character mod for CharLoader,
-    // you don't need this. CharLoader will reload your character's
-    // assets for you when clicking CharLoader's Reload button in
-    // the Mods settings tab.
+        // If your mod is a custom character mod for CharLoader,
+        // you don't need this. CharLoader will reload your character's
+        // assets for you when clicking CharLoader's Reload button in
+        // the Mods settings tab.
 
-    // Reloading custom code this way is not supported. You
-    // will have to restart the game.
+        // Reloading custom code this way is not supported. You
+        // will have to restart the game.
+    }
 }
 ```
 
