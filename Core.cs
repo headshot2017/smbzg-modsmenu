@@ -94,7 +94,7 @@ namespace SMBZModsMenu
 
             foreach (var mod in ModEntries)
             {
-                GameObject modObj = new(mod.info.Name);
+                GameObject modObj = new($"ModEntry_${mod.info.Name}");
                 modObj.transform.SetParent(scrollContent.transform, false);
                 modObj.AddComponent<RectTransform>().anchoredPosition = new Vector2(-640, 0);
                 modObj.transform.localPosition = new Vector2(0, 0);
